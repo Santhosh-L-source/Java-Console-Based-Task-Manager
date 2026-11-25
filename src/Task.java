@@ -1,34 +1,40 @@
 public class Task {
-    int id;
-    String title;
-    String priority;
-    boolean completed;
+    private int id;
+    private String title;
+    private String category;
+    private boolean completed;
+    private Priority priority;
 
-    Task(int id, String title, String priority, boolean completed) {
+    Task(int id, String title, Priority priority, String category, boolean completed) {
         this.id = id;
         this.title = title;
         this.priority = priority;
         this.completed = completed;
+        this.category = category;
     }
 
     public int getId() {
-        return this.id;
+        return id;
     }
 
     public String getTitle() {
-        return this.title;
+        return title;
     }
 
-    public String getPriority() {
-        return this.priority;
+    public Priority getPriority() {
+        return priority;
     }
 
-    public boolean getCompleted() {
-        return this.completed;
+    public String getCategory() {
+        return category;
     }
 
-    public void markCompleted() {
-        this.completed = true;
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void markCompleted(boolean completed) {
+        this.completed = completed;
     }
 
 }

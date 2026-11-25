@@ -1,25 +1,25 @@
-# Java Console-Based Task Manager
+# Java Console-Based Task & Habit Manager
 
-A beginner-friendly Java console application that allows users to add, view, and complete tasks. This project demonstrates fundamental Java concepts, including Object-Oriented Programming (OOP), ArrayList, constructors, methods, loops, and conditional statements.
+A Java console application that allows users to manage tasks with priorities and categories, track daily habits with streaks, and persist all data to plain text files between runs.
 
 ## 🎯 Features
 
-- **Add Tasks:** Create tasks with a title and priority.
+- **Add Tasks:** Create tasks with a title, `Priority` enum (`LOW`, `MEDIUM`, `HIGH`), and category.
 - **Unique Task IDs:** Automatically generate a unique ID for every task.
-- **List Tasks:** Display all available tasks with their details.
+- **List & Sort Tasks:** Display incomplete tasks first and completed tasks afterward.
 - **Complete Tasks:** Mark tasks as completed using their unique ID.
-- **Task Status:** Display tasks as `[PENDING]` or `[DONE]`.
-- **Sorting:** Display incomplete tasks first and completed tasks afterward.
-- **Error Handling:** Handle invalid task IDs and attempts to complete an already completed task.
-- **Interactive Menu:** Continue performing operations until the user chooses to exit.
+- **Filter Tasks:** Filter tasks by category or by priority.
+- **Habit Tracking & Streaks:** Add habits, mark them done today, and track both `currentStreak` and `longestStreak` using `LocalDate` and `ChronoUnit.DAYS`.
+- **File Persistence:** Automatically load tasks (`tasks.txt`) and habits (`habits.txt`) on startup and save on exit using `BufferedReader` and `BufferedWriter`.
+- **Error Handling:** Gracefully handle missing/corrupted data files and invalid user inputs without crashing.
 
 ## 🛠️ Technologies Used
 
 - Java 21
-- ArrayList
-- Scanner
-- Object-Oriented Programming (OOP)
-- Java Collections Framework
+- `ArrayList` & Java Collections Framework
+- `java.time.LocalDate` & `ChronoUnit`
+- `BufferedReader` / `BufferedWriter` (File I/O)
+- Enums, Composition & Exception Handling (`try/catch`)
 
 ## 📁 Project Structure
 
@@ -27,11 +27,15 @@ A beginner-friendly Java console application that allows users to add, view, and
 TaskManager/
 │
 ├── src/
+│   ├── Main.java
 │   ├── Task.java
 │   ├── TaskList.java
-│   └── Main.java
+│   ├── Priority.java
+│   ├── Habit.java
+│   ├── HabitTracker.java
+│   └── FileStorage.java
 │
-└── README.md
+└── Readme.md
 ```
 
 ## ⚙️ How to Run
@@ -68,14 +72,16 @@ java -cp out Main
 ## 💻 Application Menu
 
 ```text
-========== TASK MANAGER ==========
-
 1. Add Task
 2. List Tasks
 3. Complete Task
-4. Exit
+4. Filter Tasks
+5. Add Habit
+6. Mark Habit Done Today
+7. List Habits
+8. Exit
 
-Enter your choice:
+Enter the Choice:
 ```
 
 ## 📌 Sample Output
